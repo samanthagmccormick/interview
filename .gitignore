@@ -5,3 +5,8 @@ test/temp
 app/bower_components
 .tmp
 test/bower_components/
+node_modules/
+bower_components/
+*.log
+build/
+dist/
