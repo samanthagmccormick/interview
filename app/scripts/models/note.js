@@ -8,6 +8,9 @@ define([
 
     var NoteModel = Backbone.Model.extend({
         defaults: {
+            id: null,
+            title: '',
+            body: ''
         }
     });
 
