@@ -8,7 +8,11 @@ define([
     'use strict';
 
     var NoteCollection = Backbone.Collection.extend({
-        model: NoteModel
+        model: NoteModel,
+        
+        fetch: function(){
+            //get from session storage
+        }
     });
 
     return NoteCollection;
