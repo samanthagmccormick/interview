@@ -1,2 +1,28 @@
-<p>Your content here.</p>
-
+<% if(_.size(notes) === 0){ %>
+    <div>You have no notes</div>
+<% }else{ %>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% notes.each(function(note){  %>
+                    <tr>
+                        <td>
+                            <a href="#/note/<%= note.get('id') %>">
+                                <%= note.get('title') %>
+                            </a>
+                        </td>
+                        <td>
+                            <%= note.get('body') %>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+<% } %>

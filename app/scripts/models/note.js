@@ -2,7 +2,8 @@
 
 define([
     'underscore',
-    'backbone'
+    'backbone',
+    'localstorage'
 ], function (_, Backbone) {
     'use strict';
 
@@ -11,7 +12,9 @@ define([
             id: null,
             title: '',
             body: ''
-        }
+        },
+        
+        localStorage:new Backbone.LocalStorage('notes'),
     });
 
     return NoteModel;

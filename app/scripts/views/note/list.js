@@ -5,7 +5,8 @@ define([
     'underscore',
     'backbone',
     'templates',
-    'collections/note'
+    'collections/note',
+    'localstorage'
 ], function ($, _, Backbone, JST, NoteCollection) {
     'use strict';
 
@@ -14,8 +15,12 @@ define([
         
         noteCollection: new NoteCollection(),
         
+        $el: null,
+        
         initialize: function(){
             var self = this;
+            
+            this.$el = jQuery(this.el);
             
             this.noteCollection.fetch({
                 complete: function(){
@@ -26,9 +31,8 @@ define([
         
         render: function(){
             var self = this;
-            
             this.$el.html(this.template({
-                collection: self.noteCollection
+                notes: self.noteCollection
             }));
         }
     });

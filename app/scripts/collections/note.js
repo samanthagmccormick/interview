@@ -3,16 +3,22 @@
 define([
     'underscore',
     'backbone',
-    'models/note'
+    'models/note',
+    'localstorage'
 ], function (_, Backbone, NoteModel) {
     'use strict';
 
     var NoteCollection = Backbone.Collection.extend({
         model: NoteModel,
         
-        fetch: function(){
-            //get from session storage
+        localStorage: new Backbone.LocalStorage("notes"),
+        
+        initialize: function(){
+            this.on('change', function(){
+                this.fetch();
+            }, this);
         }
+        
     });
 
     return NoteCollection;
