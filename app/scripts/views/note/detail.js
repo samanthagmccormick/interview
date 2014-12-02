@@ -76,10 +76,10 @@ define([
                 this.noteModel
                     .save()
                     .done(function(){ 
-                        window.location.href = "/#/list"; 
+                        Backbone.history.navigate("list", true);
                     });
             }else{
-                return;
+                return false;
             }
         }
     });

@@ -89,3 +89,11 @@ body {
         border-bottom: 0;
     }
 }
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#body{
+    height:400px;
+}
