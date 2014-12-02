@@ -26,5 +26,5 @@ Your assignment:
 Notes:
 - This project is built on Yeoman's Backbone generator.  Take a look at their documentation if you run into trouble.
 - This project uses Backbone.localstorage to integrate HTML5's localstorage with Backbone's sync methods
-- If you have questions, please let us know!
+- If you have questions or run into problems, don't worry! Please let us know so that we can continue to improve this project.
     - mcollins@sovrn.com
