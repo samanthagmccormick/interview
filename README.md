@@ -18,9 +18,11 @@ Your assignment:
 4. Update the list view to sort notes alphabetically
 5. Add "clear list" functionality
 6. Add "remove note" functionality
-7. Commit your changes
-8. Make a pull request
-9. Get a job!
+7. Add sorting functionality
+8. Add your contact info to this file
+9. Commit your changes
+10. Make a pull request
+11. Get a job!
 
 
 Notes:
