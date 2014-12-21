@@ -15,7 +15,8 @@ define([
         
         events: {
             "click #save"   : "save",
-            "change input"  : "validate"
+            "change input"  : "validate",
+            "click .modal_close"  : "destroy"
         },
         
         
