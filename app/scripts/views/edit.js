@@ -14,7 +14,8 @@ define([
         
         
         events: {
-            "click #save"   : "save"
+            "click #save"   : "save",
+            "change input"  : "validate"
         },
         
         
