@@ -1,7 +1,10 @@
+<button id="create" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+    Create Note
+</button>
 <% if(_.size(notes) === 0){ %>
     <div>You have no notes</div>
 <% }else{ %>
-    <div class="table-responsive">
+    <div class="table-responsive note-list-container">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -13,7 +16,7 @@
                 <% notes.each(function(note){  %>
                     <tr>
                         <td>
-                            <a href="#/note/<%= note.get('id') %>">
+                            <a data-note-id="<%= note.get('id') %>" class="note">
                                 <%= note.get('title') %>
                             </a>
                         </td>

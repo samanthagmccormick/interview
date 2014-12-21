@@ -16,6 +16,10 @@ require.config({
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
+        },
+        jqueryui: {
+            exports:"$" ,
+            deps: ['jquery']
         }
     },
     paths: {
@@ -23,7 +27,9 @@ require.config({
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/underscore/underscore',
         bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap',
-        localstorage: "../bower_components/backbone.localStorage/backbone.localStorage"
+        localstorage: "../bower_components/backbone.localStorage/backbone.localStorage",
+        jqueryui: "../bower_components/jquery-ui/jquery-ui",
+        publisher: "../bower_components/publisher/src/publisher"
     }
 });
 

@@ -2,8 +2,7 @@
 
 define([
     'underscore',
-    'backbone',
-    'localstorage'
+    'backbone'
 ], function (_, Backbone) {
     'use strict';
 
@@ -14,7 +13,13 @@ define([
             body: ''
         },
         
-        localStorage:new Backbone.LocalStorage('notes'),
+        save: function () {
+            if (!_.isNumber(this.get('id'))) {
+                this.set('id', Math.round(Math.random() * 1e10));
+            }
+            
+            return this;
+        }
     });
 
     return NoteModel;

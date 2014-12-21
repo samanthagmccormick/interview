@@ -1,11 +1,25 @@
-<% if(!_.isEmpty(note.get('id'))){ %>
-    <h3>Edit Note</h3>
-<% }else{ %>
-    <h3>Create a Note</h3>
-<% } %>
-<form id="noteForm" role="form">
-    <input type="text" id="title" class="form-control" placeholder="Title" required="" autofocus="" value="<%= note.get('title') %>">
-    <textarea id="body" class="form-control" placeholder="Write something here..." required=""><%= note.get('body') %></textarea>
-    
-    <button class="btn btn-lg btn-primary btn-block" type="submit" id="save">Save</button>
-</form>
+<div class="note-container">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title">
+            <% if(!_.isEmpty(note.get('id'))){ %>
+                Edit Note
+            <% }else{ %>
+                Create a Note
+            <% } %>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <form id="noteForm" role="form">
+            <input type="text" id="title" class="form-control" placeholder="Title" required="" autofocus="" value="<%= note.get('title') %>">
+            <textarea id="body" class="form-control" placeholder="Write something here..." required=""><%= note.get('body') %></textarea>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" type="submit" id="save">Save changes</button>
+    </div>
+</div>
