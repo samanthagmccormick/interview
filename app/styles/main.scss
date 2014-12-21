@@ -97,3 +97,17 @@ body {
 #body{
     height:400px;
 }
+.note-list-container{
+    margin-top: 20px;
+}
+
+.no-close{
+    .ui-dialog-titlebar-close{
+        display:none;
+    }
+}
+.note-container{
+    border:1px solid grey;
+    background-color:whitesmoke;
+    border-radius: 5px;
+    }

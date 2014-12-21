@@ -2,12 +2,12 @@
 
 define([
     'jquery',
+    'jqueryui',
     'backbone',
     'views/application',
-    'views/note/list',
-    'views/note/detail',
+    'views/list',
     'views/index'
-], function ($, Backbone, AppView, NoteListView, NoteDetailView, IndexView) {
+], function ($, jQueryUI, Backbone, AppView, NoteListView, IndexView) {
     'use strict';
 
     var AppRouter = Backbone.Router.extend({
@@ -18,37 +18,23 @@ define([
             '': 'index'
         },
         
-        index: function(){
+        index: function () {
             this.setup();
-            new IndexView({
+            var view = new IndexView({
                 el: '#content'
             });
         },
         
-        showNotes: function(){
+        showNotes: function () {
             this.setup();
-            new NoteListView({
-                el: '#content'
-            });
-        },
-        
-        showNote: function(id){
-            this.setup();
-            new NoteDetailView({
+            var view = new NoteListView({
                 el: '#content',
-                noteId: id
+                modalEl: '#modal'
             });
         },
         
-        newNote: function(){
-            this.setup();
-            new NoteDetailView({
-                el: '#content'
-            });
-        },
-        
-        setup: function(){
-            new AppView({
+        setup: function () {
+            var view = new AppView({
                 el: '#container'
             });
         }
