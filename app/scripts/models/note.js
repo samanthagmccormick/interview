@@ -11,6 +11,8 @@ define([
         defaults: {
             id: null,
             title: '',
+            /* Added lowercase for sorting purposes */
+            titleLC: '',
             body: ''
         },
         

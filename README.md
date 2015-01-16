@@ -1,6 +1,10 @@
 sovrn Interview Project
 =========
 
+Samantha McCormick
+samanthagmccormick@gmail.com
+Cell: (617) 314-3773
+
 Thank you for your interest in working at sovrn!
 
 We have assembled a project that we'd like you to improve. This project is a simple notepad application, using local storage as a data store. This project will test your abilities with the following technologies:

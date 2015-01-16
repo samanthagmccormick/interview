@@ -25,11 +25,11 @@ define([
         events: {
             "click #create" : "create",
             "click a.note"  : "edit",
-            /* Added CLEAR LIST event */
+            /* Added the four events below */
             "click .remove" : "remove",
             "click #clear"  : "clearList", 
-            "click #sortTitle" : "sortTitle",
-            "click #sortBody"  : "sortBody"
+            "click a#sortTitle" : "sortTitle",
+            "click a#sortBody"  : "sortBody"
         },
         
         create: function () {
@@ -71,27 +71,34 @@ define([
 
             console.log(note);
 
-            // Remove this note from collection
-            this.collection.remove(note);
+            // Remove this note from collection, then save to allow data to persist
+            this.collection.remove(note).save();
 
         },
 
         /* Added this - to CLEAR THE WHOLE LIST */
         clearList: function() {
             /* Use reset to clear the collection. Passing no parameter just returns an empty collection */
-            this.collection.reset();
+            this.collection.reset().save();
         },
 
-        // /* Added this - to SORT BY TITLE */
-        // sortTitle: function() {
-        //     console.log(this.collection);
-        //     _.sortBy(this.collection, 'title');
-        // },
+        /* Added this - to SORT BY TITLE */
+        sortTitle: function() {
+            /* Sort the collection and save it into a temporary variable */
+            var newCollection = this.collection.sortBy('titleLC');
+            /* Reset the original collection with the newly sorted one */
+            this.collection.reset(newCollection).save();
 
-        // /* Added this - to SORT BY BODY */
-        // sortBody: function() {
+            console.log(this.collection);
+        },
 
-        // },
+        /* Added this - to SORT BY BODY */
+        sortBody: function() {
+            /* Sort the collection and save it into a temporary variable */
+            var newCollection = this.collection.sortBy('bodyLC');
+            /* Reset the original collection with the newly sorted one */
+            this.collection.reset(newCollection).save();
+        },
         
         initialize: function (options) {
             var self = this;

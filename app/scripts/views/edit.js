@@ -74,6 +74,9 @@ define([
             if (this.validate()) {
                 this.model.set('title', this.$title.val());
                 this.model.set('body', this.$body.val());
+                /* Added lowercase title and body attributes, for sorting */
+                this.model.set('titleLC', this.$title.val().toLowerCase());
+                this.model.set('bodyLC', this.$body.val().toLowerCase());
                 this.model.save();
                 
                 this.collection.add(this.model);
