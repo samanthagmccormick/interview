@@ -13,7 +13,8 @@ define([
             title: '',
             /* Added lowercase for sorting purposes */
             titleLC: '',
-            body: ''
+            body: '',
+            bodyLC: ''
         },
         
         // This happens when you click the button to save the new note
