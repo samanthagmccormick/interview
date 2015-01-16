@@ -16,6 +16,7 @@ define([
         events: {
             "click #save"   : "save",
             "change input"  : "validate",
+            /* When you click the modal's close button, destroy the data entered */
             "click .modal_close"  : "destroy"
         },
         
@@ -88,9 +89,12 @@ define([
          *  Remove the view from the DOM and unbind all events
          */
         destroy: function () {
+            // Removes the modal view from the DOM temporarily
             this.undelegateEvents();
+
             this.$el.removeData().unbind();
             this.remove();
+            /* Remove the Backbone view from the DOM */
             Backbone.View.prototype.remove.call(this);
         }
     });

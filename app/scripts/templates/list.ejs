@@ -1,6 +1,10 @@
 <button id="create" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
     Create Note
 </button>
+<!-- CLEAR LIST BUTTON -->
+<button id="clear" type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
+    Clear List
+</button>
 <% if(_.size(notes) === 0){ %>
     <div>You have no notes</div>
 <% }else{ %>
@@ -8,8 +12,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Body</th>
+                    <th id="sortTitle">Title</th>
+                    <th id="sortBody">Body</th>
+                    <th>Remove</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +27,12 @@
                         </td>
                         <td class="ellipsis">
                             <%= note.get('body') %>
+                        </td>
+                        <!-- REMOVE NOTE BUTTON -->
+                        <td>
+                            <button data-note-id="<%= note.get('id') %>" class="btn btn-danger remove">
+                                x
+                            </button>
                         </td>
                     </tr>
                 <% }); %>

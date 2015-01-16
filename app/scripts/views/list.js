@@ -24,31 +24,74 @@ define([
         
         events: {
             "click #create" : "create",
-            "click a.note"  : "edit"
+            "click a.note"  : "edit",
+            /* Added CLEAR LIST event */
+            "click .remove" : "remove",
+            "click #clear"  : "clearList", 
+            "click #sortTitle" : "sortTitle",
+            "click #sortBody"  : "sortBody"
         },
         
         create: function () {
             var self = this;
             
+            /* Create the empty edit view object for this note */
             this.editView = new EditView({
+                /* el is the DOM object created in the browser */
                 el: self.$modalEl,
                 collection: self.collection,
+                /* Create a new note model */
                 model: new NoteModel()
             });
         },
         
         edit: function (event) {
             var self = this,
+                 /* Temporary var to get and store the note's ID */
                 noteId = jQuery(event.target).data('note-id'),
+                /* Now get the note with this note ID, from the collection */
                 note = this.collection.get(noteId);
             
+            /* Recreate the edit view */
             this.editView = new EditView({
                 el: self.$modalEl,
                 collection: self.collection,
+                /* Show the note that you found above */
                 model: note
             });
             
         },
+
+        /* Added this - to REMOVE ONE NOTE */
+        remove: function(event) {
+            /* Temporary var for the note's ID */
+            var noteId = jQuery(event.target).data('note-id'),
+                /* Now get the model with this note ID */
+                note = this.collection.get(noteId);
+
+            console.log(note);
+
+            // Remove this note from collection
+            this.collection.remove(note);
+
+        },
+
+        /* Added this - to CLEAR THE WHOLE LIST */
+        clearList: function() {
+            /* Use reset to clear the collection. Passing no parameter just returns an empty collection */
+            this.collection.reset();
+        },
+
+        // /* Added this - to SORT BY TITLE */
+        // sortTitle: function() {
+        //     console.log(this.collection);
+        //     _.sortBy(this.collection, 'title');
+        // },
+
+        // /* Added this - to SORT BY BODY */
+        // sortBody: function() {
+
+        // },
         
         initialize: function (options) {
             var self = this;
